@@ -5,6 +5,7 @@
     ./keymaps.nix
     ./telescope.nix
     ./lsp.nix
+    ./cmp.nix
     ./lint.nix
     ./format.nix
   ];

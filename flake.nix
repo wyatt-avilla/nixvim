@@ -8,7 +8,12 @@
   };
 
   outputs =
-    { nixvim, nixpkgs, flake-parts, ... }@inputs:
+    {
+      nixvim,
+      nixpkgs,
+      flake-parts,
+      ...
+    }@inputs:
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [
         "x86_64-linux"
@@ -22,7 +27,7 @@
         let
           nixvimLib = nixvim.lib.${system};
           nixvim' = nixvim.legacyPackages.${system};
-		  pkgs = import nixpkgs { inherit system; };
+          pkgs = import nixpkgs { inherit system; };
           nixvimModule = {
             inherit system; # or alternatively, set `pkgs`
             module = import ./config; # import the module directly
@@ -33,23 +38,25 @@
           };
           nvim = nixvim'.makeNixvimWithModule nixvimModule;
 
-		  nvim-with-tools = pkgs.writeShellScriptBin "nvim" ''
-            export PATH="${pkgs.lib.makeBinPath [
-              nvim
-              pkgs.cargo
-              pkgs.rustc
-              pkgs.rustfmt
-              pkgs.rust-analyzer
-              pkgs.clippy
-              pkgs.ruff
-              pkgs.mypy
-              pkgs.shellcheck
-              pkgs.clang-tools
-              pkgs.markdownlint-cli
-              pkgs.nodePackages.prettier
-              pkgs.nixfmt-rfc-style
-              pkgs.yazi
-            ]}:$PATH"
+          nvim-with-tools = pkgs.writeShellScriptBin "nvim" ''
+            export PATH="${
+              pkgs.lib.makeBinPath [
+                nvim
+                pkgs.cargo
+                pkgs.rustc
+                pkgs.rustfmt
+                pkgs.rust-analyzer
+                pkgs.clippy
+                pkgs.ruff
+                pkgs.mypy
+                pkgs.shellcheck
+                pkgs.clang-tools
+                pkgs.markdownlint-cli
+                pkgs.nodePackages.prettier
+                pkgs.nixfmt-rfc-style
+                pkgs.yazi
+              ]
+            }:$PATH"
             exec ${nvim}/bin/nvim "$@"
           '';
 
@@ -62,7 +69,7 @@
 
           packages = {
             default = nvim-with-tools;
-			nvim-minimal = nvim;
+            nvim-minimal = nvim;
           };
         };
     };

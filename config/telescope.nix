@@ -5,23 +5,23 @@
       keymaps = {
         "<leader>ff" = {
           action = "find_files";
-	  options.desc = "Find files";
-	};
+          options.desc = "Find files";
+        };
 
         "<leader>lg" = {
           action = "live_grep";
-	  options.desc = "Live grep";
-	};
+          options.desc = "Live grep";
+        };
 
         "<leader>gs" = {
           action = "grep_string";
-	  options.desc = "Grep string";
-	};
+          options.desc = "Grep string";
+        };
 
         "<leader>lb" = {
           action = "buffers";
-	  options.desc = "Buffer browser";
-	};
+          options.desc = "Buffer browser";
+        };
       };
 
       settings.defaults.mappings.n = {

@@ -1,5 +1,5 @@
 {
-  globals.mapleader  = " ";
+  globals.mapleader = " ";
 
   opts = {
     nu = true;

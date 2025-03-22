@@ -6,38 +6,47 @@
   plugins.lsp = {
     enable = true;
     servers = {
-	  nixd.enable = true;
-	  bashls.enable = true;
-	  clangd.enable = true;
-	  jedi_language_server.enable = true;
-	  marksman.enable = true;
+      nixd.enable = true;
+      bashls.enable = true;
+      clangd.enable = true;
+      jedi_language_server.enable = true;
+      marksman.enable = true;
 
       ruff = {
         enable = true;
         extraOptions.init_options.settings = {
           lint = {
             select = [ "ALL" ];
-            ignore = [ "D" "CPY" "T20" "E501" ];
+            ignore = [
+              "D"
+              "CPY"
+              "T20"
+              "E501"
+            ];
           };
-	    };
+        };
       };
 
       rust_analyzer = {
         enable = true;
-		installRustc = false;
-		installCargo = false;
+        installRustc = false;
+        installCargo = false;
 
-	    settings = {
-	      checkOnSave = true;
-	      check = {
-	        command = "clippy";
-	        extraArgs = [ "--" "-W" "clippy::pedantic" ];
-	      };
-	    };
+        settings = {
+          checkOnSave = true;
+          check = {
+            command = "clippy";
+            extraArgs = [
+              "--"
+              "-W"
+              "clippy::pedantic"
+            ];
+          };
+        };
       };
     };
 
-	keymaps = {
+    keymaps = {
       lspBuf = {
         gd = {
           action = "definition";
