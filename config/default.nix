@@ -1,4 +1,13 @@
 {
   # Import all your configuration modules here
-  imports = [ ./bufferline.nix ];
+  imports = [
+    ./keymaps.nix
+    ./bufferline.nix
+  ];
+
+  plugins = {
+    lualine.enable = true;
+    gitsigns.enable = true;
+    wakatime.enable = true;
+  };
 }
