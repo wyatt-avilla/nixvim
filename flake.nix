@@ -55,6 +55,7 @@
                 pkgs.nodePackages.prettier
                 pkgs.nixfmt-rfc-style
                 pkgs.yazi
+                pkgs.wakatime-cli
               ]
             }:$PATH"
             exec ${nvim}/bin/nvim "$@"
