@@ -5,6 +5,7 @@
     ./keymaps.nix
     ./telescope.nix
     ./lsp.nix
+    ./lint.nix
   ];
 
   plugins = {
