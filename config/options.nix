@@ -16,6 +16,8 @@
     hlsearch = false;
     incsearch = true;
 
+    signcolumn = "yes";
+
     scrolloff = 8;
   };
 }
