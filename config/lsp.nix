@@ -7,6 +7,10 @@
     enable = true;
     servers = {
 	  nixd.enable = true;
+	  bashls.enable = true;
+	  clangd.enable = true;
+	  jedi_language_server.enable = true;
+	  marksman.enable = true;
 
       ruff = {
         enable = true;
