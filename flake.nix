@@ -41,6 +41,10 @@
               pkgs.rustfmt
               pkgs.rust-analyzer
               pkgs.clippy
+              pkgs.mypy
+              pkgs.shellcheck
+              pkgs.clang-tools
+              pkgs.markdownlint-cli
               pkgs.yazi
             ]}:$PATH"
             exec ${nvim}/bin/nvim "$@"

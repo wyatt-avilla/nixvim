@@ -1,10 +1,14 @@
 {
   plugins.lint = {
     enable = true;
-	linters = {
-	  mypy = {
-	    enable = true;
-	  };
+	autoLoad = true;
+
+	lintersByFt = {
+	  python = [ "mypy" ];
+	  sh = [ "shellcheck" ];
+	  c = [ "clangtidy" ];
+	  cpp = [ "clangtidy" ];
+	  markdown = [ "markdownlint" ];
 	};
   };
 }
