@@ -6,6 +6,7 @@
     ./telescope.nix
     ./lsp.nix
     ./lint.nix
+    ./format.nix
   ];
 
   plugins = {
