@@ -4,6 +4,7 @@
     ./options.nix
     ./keymaps.nix
     ./telescope.nix
+    ./lsp.nix
   ];
 
   plugins = {
@@ -11,5 +12,6 @@
     gitsigns.enable = true;
     wakatime.enable = true;
     yazi.enable = true;
+    web-devicons.enable = true;
   };
 }
