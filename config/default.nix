@@ -6,6 +6,7 @@
     ./telescope.nix
     ./lsp.nix
     ./cmp.nix
+    ./treesitter.nix
     ./lint.nix
     ./format.nix
   ];
@@ -16,5 +17,8 @@
     wakatime.enable = true;
     yazi.enable = true;
     web-devicons.enable = true;
+    which-key.enable = true;
+    nvim-autopairs.enable = true;
+    markdown-preview.enable = true;
   };
 }

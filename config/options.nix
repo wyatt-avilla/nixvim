@@ -8,7 +8,7 @@
     tabstop = 4;
     softtabstop = 4;
     shiftwidth = 4;
-    smartindent = true;
+    smartindent = false;
 
     swapfile = false;
     backup = false;
