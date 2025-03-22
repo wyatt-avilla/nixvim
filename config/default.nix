@@ -9,11 +9,11 @@
     ./treesitter.nix
     ./lint.nix
     ./format.nix
+    ./gitsigns.nix
   ];
 
   plugins = {
     lualine.enable = true;
-    gitsigns.enable = true;
     wakatime.enable = true;
     yazi.enable = true;
     web-devicons.enable = true;
