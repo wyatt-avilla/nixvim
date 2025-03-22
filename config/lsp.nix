@@ -9,22 +9,21 @@
             select = [ "ALL" ];
             ignore = [ "D" "CPY" "T20" "E501" ];
           };
-	};
+	    };
       };
 
       rust_analyzer = {
         enable = true;
-	installCargo = true;
-	installRustc = true;
-	installRustfmt = true;
+		installRustc = false;
+		installCargo = false;
 
-	settings = {
-	  checkOnSave = true;
-	  check = {
-	    command = "clippy";
-	    extraArgs = [ "--" "-W" "clippy::pedantic" ];
-	  };
-	};
+	    settings = {
+	      checkOnSave = true;
+	      check = {
+	        command = "clippy";
+	        extraArgs = [ "--" "-W" "clippy::pedantic" ];
+	      };
+	    };
       };
     };
   };
