@@ -3,7 +3,6 @@
   imports = [
     ./options.nix
     ./keymaps.nix
-    ./bufferline.nix
     ./telescope.nix
   ];
 
