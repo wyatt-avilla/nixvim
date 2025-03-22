@@ -4,7 +4,21 @@
     autoLoad = true;
 
     settings = {
-      keymap = { };
+      completion.documentation.auto_show = true;
+
+      keymap = {
+        preset = "enter";
+
+        "<Tab>" = [
+          "select_next"
+          "fallback"
+        ];
+
+        "<S-Tab>" = [
+          "select_prev"
+          "fallback"
+        ];
+      };
     };
   };
 }
