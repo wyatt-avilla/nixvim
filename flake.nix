@@ -41,6 +41,7 @@
               pkgs.rustfmt
               pkgs.rust-analyzer
               pkgs.clippy
+              pkgs.yazi
             ]}:$PATH"
             exec ${nvim}/bin/nvim "$@"
           '';
