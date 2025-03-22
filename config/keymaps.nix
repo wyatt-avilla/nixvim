@@ -10,5 +10,7 @@
     { key = "j"; action = "o"; mode = ["n" "v"]; options.noremap = true; }
     { key = "k"; action = "n"; mode = ["n" "v"]; options.noremap = true; }
     { key = "l"; action = "e"; mode = ["n" "v"]; options.noremap = true; }
+
+    { key = "<leader>lf"; action = "<cmd>Yazi<CR>"; mode = "n"; options.desc = "Open Yazi"; }
   ];
 }
