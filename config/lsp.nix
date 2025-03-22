@@ -2,6 +2,8 @@
   plugins.lsp = {
     enable = true;
     servers = {
+	  nixd.enable = true;
+
       ruff = {
         enable = true;
         extraOptions.init_options.settings = {
