@@ -50,6 +50,7 @@
                 pkgs.ruff
                 pkgs.mypy
                 pkgs.shellcheck
+                pkgs.shfmt
                 pkgs.clang-tools
                 pkgs.markdownlint-cli
                 pkgs.nodePackages.prettier
