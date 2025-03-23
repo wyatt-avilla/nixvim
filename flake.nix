@@ -52,6 +52,7 @@
                 pkgs.shellcheck
                 pkgs.shfmt
                 pkgs.clang-tools
+                pkgs.statix
                 pkgs.markdownlint-cli
                 pkgs.nodePackages.prettier
                 pkgs.nixfmt-rfc-style

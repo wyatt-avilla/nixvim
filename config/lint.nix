@@ -8,6 +8,7 @@
       sh = [ "shellcheck" ];
       c = [ "clangtidy" ];
       cpp = [ "clangtidy" ];
+      nix = [ "statix" ];
       markdown = [ "markdownlint" ];
     };
 
