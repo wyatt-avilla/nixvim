@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   plugins.treesitter = {
     enable = true;
@@ -6,20 +7,20 @@
       highlight.enable = true;
       indent.enable = true;
 
-      ensure_installed = [
-        "c"
-        "markdown"
-        "markdown_inline"
-        "latex"
-        "python"
-        "bash"
-        "nix"
-        "vim"
-        "vimdoc"
-        "query"
-        "rust"
-        "toml"
-        "regex"
+      grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
+        c
+        markdown
+        markdown_inline
+        latex
+        python
+        bash
+        nix
+        vim
+        vimdoc
+        query
+        rust
+        toml
+        regex
       ];
     };
   };
