@@ -33,6 +33,10 @@
           "--prose-wrap"
           "always"
         ];
+
+        nixfmt.prepend_args = [
+          "--strict"
+        ];
       };
     };
   };
