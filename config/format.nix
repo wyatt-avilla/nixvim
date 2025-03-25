@@ -34,9 +34,7 @@
           "always"
         ];
 
-        nixfmt.prepend_args = [
-          "--strict"
-        ];
+        nixfmt.prepend_args = [ "--strict" ];
       };
     };
   };
