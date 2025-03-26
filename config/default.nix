@@ -12,6 +12,11 @@
     ./gitsigns.nix
   ];
 
+  colorschemes.onedark = {
+    enable = true;
+    settings.style = "warmer";
+  };
+
   plugins = {
     lualine.enable = true;
     wakatime.enable = true;
@@ -20,5 +25,6 @@
     which-key.enable = true;
     nvim-autopairs.enable = true;
     markdown-preview.enable = true;
+    colorizer.enable = true;
   };
 }
