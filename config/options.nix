@@ -16,6 +16,8 @@
     hlsearch = false;
     incsearch = true;
 
+    showmode = false;
+
     signcolumn = "yes";
 
     scrolloff = 8;
