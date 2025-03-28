@@ -9,6 +9,7 @@
     ./lint.nix
     ./format.nix
     ./gitsigns.nix
+    ./lualine.nix
   ];
 
   colorschemes.onedark = {
@@ -17,7 +18,6 @@
   };
 
   plugins = {
-    lualine.enable = true;
     wakatime.enable = true;
     yazi.enable = true;
     web-devicons.enable = true;
