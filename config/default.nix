@@ -1,5 +1,4 @@
 {
-  # Import all your configuration modules here
   imports = [
     ./options.nix
     ./keymaps.nix
@@ -26,5 +25,6 @@
     nvim-autopairs.enable = true;
     markdown-preview.enable = true;
     colorizer.enable = true;
+    vim-surround.enable = true;
   };
 }
