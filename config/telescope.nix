@@ -31,6 +31,9 @@
 
       settings.pickers.buffers = {
         initial_mode = "normal";
+        mappings.n = {
+          "x" = "delete_buffer";
+        };
       };
     };
   };
