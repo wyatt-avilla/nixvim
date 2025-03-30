@@ -20,12 +20,14 @@
         ];
         lualine_c = [
           {
-            __unkeyed-1 = "filename";
-            separator = "";
-          }
-          {
             __unkeyed-1 = "filetype";
             icon_only = true;
+            separator = "";
+            padding.left = 1;
+            padding.right = 0;
+          }
+          {
+            __unkeyed-1 = "filename";
             separator = "";
             padding.left = 0;
           }
