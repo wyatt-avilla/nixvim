@@ -10,6 +10,8 @@
     ./format.nix
     ./gitsigns.nix
     ./lualine.nix
+    ./fugitive.nix
+    ./autocmd.nix
   ];
 
   colorschemes.onedark = {
