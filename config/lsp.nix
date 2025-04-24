@@ -1,3 +1,4 @@
+{ helpers, ... }:
 {
   diagnostics = {
     virtual_text = false;
@@ -5,6 +6,14 @@
       current_line = true;
     };
     float.source = "always";
+    signs = {
+      text = helpers.toRawKeys {
+        "vim.diagnostic.severity.ERROR" = "󰅙";
+        "vim.diagnostic.severity.WARN" = "";
+        "vim.diagnostic.severity.INFO" = "󰋼";
+        "vim.diagnostic.severity.HINT" = "󰌵";
+      };
+    };
   };
 
   plugins.lsp = {
