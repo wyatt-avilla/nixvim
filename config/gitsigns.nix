@@ -1,7 +1,5 @@
 let
-  gs = "require('gitsigns')";
-
-  mkGitSignsAction = action: "<cmd>lua ${gs}.${action}()<CR>";
+  mkGitSignsAction = cmd: "<cmd>Gitsigns ${cmd}<CR>";
 in
 {
   plugins.gitsigns = {
@@ -35,6 +33,20 @@ in
       action = mkGitSignsAction "reset_hunk";
       mode = "n";
       options.desc = "Reset hunk";
+    }
+
+    {
+      key = "[g";
+      action = mkGitSignsAction "nav_hunk prev";
+      mode = "n";
+      options.desc = "Jump to previous Git hunk";
+    }
+
+    {
+      key = "]g";
+      action = mkGitSignsAction "nav_hunk next";
+      mode = "n";
+      options.desc = "Jump to next Git hunk";
     }
   ];
 }
