@@ -2,9 +2,7 @@
 {
   diagnostics = {
     virtual_text = false;
-    virtual_lines = {
-      current_line = true;
-    };
+    virtual_lines = false;
     float.source = "always";
     signs = {
       text = helpers.toRawKeys {
@@ -103,7 +101,7 @@
         };
       };
       diagnostic = {
-        "<leader>e" = {
+        "<leader>de" = {
           action = "open_float";
           desc = "Line Diagnostics";
         };
@@ -118,4 +116,24 @@
       };
     };
   };
+  keymaps = [
+    {
+      key = "<leader>e";
+      action.__raw = "function()
+	    vim.diagnostic.config({ virtual_lines = { current_line = true } })
+
+		ns = vim.api.nvim_create_namespace('toggle_virtual_lines')
+
+		local function disable_virtual_lines()
+		  vim.diagnostic.config({ virtual_lines = false })
+		  vim.on_key(nil, ns)
+		end
+
+	    vim.on_key(disable_virtual_lines, ns)
+	  end";
+      mode = "n";
+      options.noremap = true;
+      options.desc = "Open virtual lines for the current line";
+    }
+  ];
 }
