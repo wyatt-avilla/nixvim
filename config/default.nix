@@ -12,6 +12,7 @@
     ./lualine.nix
     ./fugitive.nix
     ./autocmd.nix
+    ./yazi.nix
   ];
 
   colorschemes.onedark = {
@@ -21,7 +22,6 @@
 
   plugins = {
     wakatime.enable = true;
-    yazi.enable = true;
     web-devicons.enable = true;
     which-key.enable = true;
     nvim-autopairs.enable = true;
