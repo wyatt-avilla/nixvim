@@ -2,6 +2,18 @@
   plugins = {
     fzf-lua = {
       enable = true;
+      settings.keymap.fzf.__raw = ''
+        {
+          ["ctrl-u"] = "preview-up",
+          ["ctrl-d"] = "preview-down",
+        }
+      '';
+      settings.keymap.builtin.__raw = ''
+        {
+          ["<C-u>"] = "preview-up",
+          ["<C-d>"] = "preview-down",
+        }
+      '';
       keymaps = {
         "<leader>ff" = {
           action = "files";
