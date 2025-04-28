@@ -2,7 +2,7 @@
   imports = [
     ./options.nix
     ./keymaps.nix
-    ./telescope.nix
+    ./fzf.nix
     ./lsp.nix
     ./cmp.nix
     ./treesitter.nix
