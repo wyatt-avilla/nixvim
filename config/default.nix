@@ -20,6 +20,10 @@
     settings.style = "warmer";
   };
 
+  highlight.FloatBorder = {
+    link = "guifg";
+  };
+
   plugins = {
     wakatime.enable = true;
     web-devicons.enable = true;
