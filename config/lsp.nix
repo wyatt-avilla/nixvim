@@ -26,6 +26,7 @@
       ruff = {
         enable = true;
         extraOptions.init_options.settings = {
+          configurationPreference = "filesystemFirst";
           lint = {
             select = [ "ALL" ];
             ignore = [
