@@ -1,17 +1,18 @@
-# Nixvim template
+# NixVim
 
-This template gives you a good starting point for configuring nixvim standalone.
+This repo contains a nix flake with my NixVim config.
 
-## Configuring
+## Flake Outputs
 
-To start configuring, just add or modify the nix files in `./config`.
-If you add a new configuration file, remember to add it to the
-[`config/default.nix`](./config/default.nix) file
+The flake exposes 2 version of NixVim, one bundled with dependencies (`fzf`,
+`yazi`, etc. ), and one without.
 
-## Testing your new configuration
+Run either like so:
 
-To test your configuration simply run the following command
+```sh
+# Includes all dependencies
+nix run github:wyatt-avilla/nixvim
 
-```
-nix run .
+# Only Neovim
+nix run github:wyatt-avilla/nixvim#nvim-minimal
 ```
