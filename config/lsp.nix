@@ -1,6 +1,6 @@
 { helpers, ... }:
 {
-  diagnostics = {
+  diagnostic.settings = {
     virtual_text = false;
     virtual_lines = false;
     float.source = "always";
