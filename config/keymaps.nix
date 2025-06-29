@@ -79,5 +79,17 @@
       ];
       options.noremap = true;
     }
+    {
+      key = "<leader>we";
+      action = "<cmd>wincmd w<CR>";
+      mode = "n";
+      options.desc = "Cycle next window";
+    }
+    {
+      key = "<leader>wi";
+      action = "<cmd>wincmd W<CR>";
+      mode = "n";
+      options.desc = "Cycle next window";
+    }
   ];
 }
