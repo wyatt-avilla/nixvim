@@ -4,6 +4,9 @@
     settings = {
       open_for_directories = true;
     };
+    luaConfig.post = ''
+      vim.g.loaded_netrwPlugin = 1
+    '';
   };
 
   keymaps = [
