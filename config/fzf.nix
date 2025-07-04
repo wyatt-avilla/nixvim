@@ -1,4 +1,11 @@
 {
+  autoCmd = [
+    {
+      event = [ "VimEnter" ];
+      command = "FzfLua register_ui_select";
+    }
+  ];
+
   plugins = {
     fzf-lua = {
       enable = true;
