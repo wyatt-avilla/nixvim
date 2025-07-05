@@ -48,6 +48,9 @@
                 nixfmt-rfc-style
                 yazi
                 wakatime-cli
+                texlab
+                tex-fmt
+                texlivePackages.chktex
               ];
               imports = [ ./config ];
             };

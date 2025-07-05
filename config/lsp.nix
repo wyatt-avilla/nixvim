@@ -56,6 +56,15 @@
           };
         };
       };
+
+      texlab = {
+        enable = true;
+
+        settings.texlab.chktex = {
+          onOpenAndSave = true;
+          additionalArgs = [ "-n8" ];
+        };
+      };
     };
 
     keymaps = {

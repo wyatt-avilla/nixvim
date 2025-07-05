@@ -26,6 +26,7 @@
           "markdownlint"
         ];
         yaml = [ "prettier" ];
+        tex = [ "tex-fmt" ];
       };
 
       formatters = {
