@@ -7,7 +7,7 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
 
     nix-checks = {
-      url = "git+ssh://git@github.com/wyatt-avilla/nix-ci";
+      url = "github:wyatt-avilla/nix-ci";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
