@@ -5,13 +5,20 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixvim.url = "github:nix-community/nixvim";
     flake-parts.url = "github:hercules-ci/flake-parts";
+
+    nix-checks = {
+      url = "git+ssh://git@github.com/wyatt-avilla/nix-ci";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
     {
+      self,
       nixvim,
       nixpkgs,
       flake-parts,
+      nix-checks,
       ...
     }@inputs:
     flake-parts.lib.mkFlake { inherit inputs; } {
@@ -63,6 +70,21 @@
         {
           checks = {
             default = nixvimLib.check.mkTestDerivationFromNixvimModule minimalModule;
+
+            formatting = nix-checks.lib.mkFormattingCheck {
+              inherit pkgs;
+              src = self;
+            };
+
+            linting = nix-checks.lib.mkLintingCheck {
+              inherit pkgs;
+              src = self;
+            };
+
+            dead-code = nix-checks.lib.mkDeadCodeCheck {
+              inherit pkgs;
+              src = self;
+            };
           };
 
           packages = {
