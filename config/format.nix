@@ -26,6 +26,7 @@
         ];
         yaml = [ "prettier" ];
         tex = [ "tex-fmt" ];
+        sql = [ "sqlfluff" ];
       };
 
       formatters = {

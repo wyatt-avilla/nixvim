@@ -65,6 +65,16 @@
           additionalArgs = [ "-n8" ];
         };
       };
+
+      sqls = {
+        enable = true;
+
+        cmd = [
+          "sqls"
+          "--config"
+          ".sqls.yml"
+        ];
+      };
     };
 
     keymaps = {
