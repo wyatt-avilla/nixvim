@@ -15,7 +15,10 @@
       sections = {
         lualine_a = [ "mode" ];
         lualine_b = [
-          "branch"
+          {
+            __unkeyed-1 = "branch";
+            icon = "";
+          }
           "diff"
         ];
         lualine_c = [
