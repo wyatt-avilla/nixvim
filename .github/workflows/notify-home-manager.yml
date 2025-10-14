@@ -19,7 +19,7 @@ jobs:
     steps:
       - name: Github REST API Call
         env:
-          CI_TOKEN: ${{ secrets.HOME_MANAGER_NOTIFY_TOKEN }}
+          CI_TOKEN: ${{ secrets.NIX_PAT }}
           PARENT_REPO: wyatt-avilla/home-manager
           PARENT_BRANCH: main
           WORKFLOW_ID: 152027521
