@@ -1,4 +1,4 @@
-name: Notify home manager repo
+name: Notify Home Manager Repo
 
 on:
   push:
