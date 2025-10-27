@@ -13,6 +13,7 @@
     ./fugitive.nix
     ./autocmd.nix
     ./yazi.nix
+    ./copilot.nix
   ];
 
   colorschemes.onedark = {
