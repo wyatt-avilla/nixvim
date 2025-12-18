@@ -43,6 +43,7 @@
         enable = true;
         installRustc = false;
         installCargo = false;
+        package = null;
 
         settings = {
           checkOnSave = true;
