@@ -1,11 +1,11 @@
 {
   imports = [
+    ./languages
     ./options.nix
     ./keymaps.nix
     ./fzf.nix
     ./lsp.nix
     ./cmp.nix
-    ./treesitter.nix
     ./lint.nix
     ./format.nix
     ./gitsigns.nix

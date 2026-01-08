@@ -16,67 +16,6 @@
 
   plugins.lsp = {
     enable = true;
-    servers = {
-      nixd.enable = true;
-      bashls.enable = true;
-      clangd.enable = true;
-      jedi_language_server.enable = true;
-      marksman.enable = true;
-
-      ruff = {
-        enable = true;
-        extraOptions.init_options.settings = {
-          configurationPreference = "filesystemFirst";
-          lint = {
-            select = [ "ALL" ];
-            ignore = [
-              "D"
-              "CPY"
-              "T20"
-              "E501"
-            ];
-          };
-        };
-      };
-
-      rust_analyzer = {
-        enable = true;
-        installRustc = false;
-        installCargo = false;
-        package = null;
-
-        settings = {
-          checkOnSave = true;
-          check = {
-            command = "clippy";
-            extraArgs = [
-              "--"
-              "-W"
-              "clippy::pedantic"
-            ];
-          };
-        };
-      };
-
-      texlab = {
-        enable = true;
-
-        settings.texlab.chktex = {
-          onOpenAndSave = true;
-          additionalArgs = [ "-n8" ];
-        };
-      };
-
-      sqls = {
-        enable = true;
-
-        cmd = [
-          "sqls"
-          "--config"
-          ".sqls.yml"
-        ];
-      };
-    };
 
     keymaps = {
       lspBuf = {
@@ -133,6 +72,7 @@
       };
     };
   };
+
   keymaps = [
     {
       key = "<leader>e";
