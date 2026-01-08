@@ -1,25 +1,19 @@
 let
   colorPairFrom = hl: ''
-    (function() 
-      local _, hl = pcall(vim.api.nvim_get_hl_by_name, "${hl}", true)
+    (function()
+      local hl = vim.api.nvim_get_hl(0, {name = "${hl}", link = false})
 
-      for _, key in pairs({"foreground", "background", "special"}) do
-          if hl[key] then
-              hl[key] = string.format("#%06x", hl[key])
-          end
-      end
+      local hex = string.format("%06x", hl.fg)
 
       local darken_amount = 0.6
 
-      hex = hl.foreground:gsub("#", "")
-      
       local r = tonumber(hex:sub(1,2), 16)
       local g = tonumber(hex:sub(3,4), 16)
       local b = tonumber(hex:sub(5,6), 16)
-      
-      dark_r = math.max(0, math.min(255, math.floor(r * (1 - darken_amount))))
-      dark_g = math.max(0, math.min(255, math.floor(g * (1 - darken_amount))))
-      dark_b = math.max(0, math.min(255, math.floor(b * (1 - darken_amount))))
+
+      local dark_r = math.max(0, math.min(255, math.floor(r * (1 - darken_amount))))
+      local dark_g = math.max(0, math.min(255, math.floor(g * (1 - darken_amount))))
+      local dark_b = math.max(0, math.min(255, math.floor(b * (1 - darken_amount))))
 
       return {
     	bg = string.format("#%02X%02X%02X", r, g, b);
@@ -105,9 +99,9 @@ in
     BlinkCmpKindEnum.__raw = colorPairFrom "@lsp.type.enum";
     BlinkCmpKindClass.__raw = colorPairFrom "@lsp.type.class";
     BlinkCmpKindEvent.__raw = colorPairFrom "@lsp.type.event";
-    BlinkCmpKindField.__raw = colorPairFrom "@field";
-    BlinkCmpKindValue.__raw = colorPairFrom "@field";
-    BlinkCmpKindText.__raw = colorPairFrom "@text";
+    BlinkCmpKindField.__raw = colorPairFrom "CmpItemKindField";
+    BlinkCmpKindValue.__raw = colorPairFrom "CmpItemKindField";
+    BlinkCmpKindText.__raw = colorPairFrom "CmpItemKindText";
     BlinkCmpKindMethod.__raw = colorPairFrom "@lsp.type.method";
     BlinkCmpKindStruct.__raw = colorPairFrom "@lsp.type.struct";
     BlinkCmpKindFunction.__raw = colorPairFrom "@lsp.type.function";
@@ -124,9 +118,9 @@ in
     BlinkCmpKindUnit.__raw = colorPairFrom "@lsp.type.parameter";
     BlinkCmpKindFolder.__raw = colorPairFrom "@lsp.type.parameter";
 
-    BlinkCmpKindColor.__raw = colorPairFrom "@text";
-    BlinkCmpKindSnippet.__raw = colorPairFrom "@text";
-    BlinkCmpKindProperty.__raw = colorPairFrom "@text";
-    BlinkCmpKindReference.__raw = colorPairFrom "@text";
+    BlinkCmpKindColor.__raw = colorPairFrom "CmpItemKindText";
+    BlinkCmpKindSnippet.__raw = colorPairFrom "CmpItemKindText";
+    BlinkCmpKindProperty.__raw = colorPairFrom "CmpItemKindText";
+    BlinkCmpKindReference.__raw = colorPairFrom "CmpItemKindText";
   };
 }
