@@ -16,3 +16,7 @@ nix run github:wyatt-avilla/nixvim
 # Only Neovim
 nix run github:wyatt-avilla/nixvim#nvim-minimal
 ```
+
+## Screenshot
+
+![Screenshot](./screenshot.png)
