@@ -18,5 +18,9 @@
         require("copilot.client").get = function() return { is_disabled = true } end
       end
     '';
+
+    luaConfig.post = ''
+      require("copilot.command").disable()
+    '';
   };
 }
