@@ -38,7 +38,7 @@
 
           bundledModule = {
             module = {
-              extraPackages = with pkgs; [
+              extraPackagesAfter = with pkgs; [
                 cargo
                 rustc
                 rustfmt
