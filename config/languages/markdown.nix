@@ -11,10 +11,6 @@
         "prettier"
         "markdownlint"
       ];
-      formatters.prettier.prepend_args = [
-        "--prose-wrap"
-        "always"
-      ];
     };
 
     lint.lintersByFt.markdown = [ "markdownlint" ];
