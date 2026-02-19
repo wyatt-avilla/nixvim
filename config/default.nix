@@ -1,6 +1,9 @@
 {
   imports = [
     ./languages
+    ./git
+  ]
+  ++ [
     ./options.nix
     ./keymaps.nix
     ./fzf.nix
@@ -8,9 +11,7 @@
     ./cmp.nix
     ./lint.nix
     ./format.nix
-    ./gitsigns.nix
     ./lualine.nix
-    ./fugitive.nix
     ./autocmd.nix
     ./yazi.nix
     ./copilot.nix

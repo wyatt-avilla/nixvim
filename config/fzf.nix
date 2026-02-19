@@ -42,16 +42,6 @@
           options.desc = "Buffer browser";
         };
 
-        "<leader>gc" = {
-          action = "git_commits";
-          options.desc = "Git commits";
-        };
-
-        "<leader>gb" = {
-          action = "git_branches";
-          options.desc = "Git branches";
-        };
-
         "<leader>ch" = {
           action = "command_history";
           options.desc = "Command history";
