@@ -34,7 +34,10 @@
         let
           nixvimLib = nixvim.lib.${system};
           nixvim' = nixvim.legacyPackages.${system};
-          pkgs = import nixpkgs { inherit system; };
+          pkgs = import nixpkgs {
+            inherit system;
+            config.allowUnfree = true;
+          };
 
           bundledModule = {
             module = {
@@ -59,6 +62,9 @@
                 tex-fmt
                 texlivePackages.chktex
                 sqlfluff
+                terraform
+                terraform-ls
+                tflint
               ];
               imports = [ ./config ];
             };

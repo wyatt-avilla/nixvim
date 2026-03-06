@@ -10,6 +10,7 @@
     ./markdown.nix
     ./sql.nix
     ./yaml.nix
+    ./terraform.nix
   ];
 
   plugins.treesitter = {
