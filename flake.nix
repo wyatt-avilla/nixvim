@@ -54,7 +54,7 @@
                 clang-tools
                 statix
                 markdownlint-cli
-                nodePackages.prettier
+                prettier
                 nixfmt-rfc-style
                 yazi
                 wakatime-cli
