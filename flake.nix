@@ -65,6 +65,7 @@
                 terraform
                 terraform-ls
                 tflint
+                tinymist
               ];
               imports = [ ./config ];
             };

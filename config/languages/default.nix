@@ -7,6 +7,7 @@
     ./bash.nix
     ./nix.nix
     ./latex.nix
+    ./typst.nix
     ./markdown.nix
     ./sql.nix
     ./yaml.nix
