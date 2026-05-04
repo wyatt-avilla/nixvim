@@ -6,7 +6,7 @@
     nixvim.url = "github:nix-community/nixvim";
     flake-parts.url = "github:hercules-ci/flake-parts";
 
-    nix-checks = {
+    nix-ci = {
       url = "github:wyatt-avilla/nix-ci";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -18,7 +18,7 @@
       nixvim,
       nixpkgs,
       flake-parts,
-      nix-checks,
+      nix-ci,
       ...
     }@inputs:
     flake-parts.lib.mkFlake { inherit inputs; } {
@@ -37,6 +37,10 @@
           pkgs = import nixpkgs {
             inherit system;
             config.allowUnfree = true;
+          };
+          ci = nix-ci.lib.mkProject {
+            inherit pkgs;
+            src = self;
           };
 
           bundledModule = {
@@ -76,24 +80,11 @@
           };
         in
         {
-          checks = {
+          checks = ci.checks // {
             default = nixvimLib.check.mkTestDerivationFromNixvimModule minimalModule;
-
-            formatting = nix-checks.lib.mkFormattingCheck {
-              inherit pkgs;
-              src = self;
-            };
-
-            linting = nix-checks.lib.mkLintingCheck {
-              inherit pkgs;
-              src = self;
-            };
-
-            dead-code = nix-checks.lib.mkDeadCodeCheck {
-              inherit pkgs;
-              src = self;
-            };
           };
+
+          inherit (ci) formatter;
 
           packages = {
             default = nixvim'.makeNixvimWithModule bundledModule;
@@ -101,16 +92,7 @@
           };
 
           devShells = {
-            default = pkgs.mkShell {
-              packages = with pkgs; [
-                pre-commit
-                nixfmt-rfc-style
-                statix
-              ];
-              shellHook = ''
-                pre-commit install
-              '';
-            };
+            default = ci.devShell;
           };
         };
     };
