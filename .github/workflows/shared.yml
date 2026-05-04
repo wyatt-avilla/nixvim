@@ -10,9 +10,21 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    shell: bash
+
 jobs:
-  formatting:
+  enumerate-checks:
+    name: Enumerate checks
     runs-on: ubuntu-latest
+
+    outputs:
+      checks: ${{ steps.checks.outputs.checks }}
 
     steps:
       - name: Checkout
@@ -23,11 +35,21 @@ jobs:
         with:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Check Formatting
-        run: nix build .#checks.x86_64-linux.formatting
+      - name: Enumerate check outputs
+        id: checks
+        run: |
+          checks="$(nix eval --json '.#checks.x86_64-linux' --apply builtins.attrNames)"
+          echo "checks=$checks" >> "$GITHUB_OUTPUT"
 
-  linting:
+  check:
+    name: Run ${{ matrix.check }}
+    needs: enumerate-checks
     runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        check: ${{ fromJSON(needs.enumerate-checks.outputs.checks) }}
 
     steps:
       - name: Checkout
@@ -38,20 +60,9 @@ jobs:
         with:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Check Formatting
-        run: nix build .#checks.x86_64-linux.linting
-
-  dead-code:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Install Nix
-        uses: cachix/install-nix-action@v31
-        with:
-          github_access_token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Check Formatting
-        run: nix build .#checks.x86_64-linux.dead-code
+      - name: Run check
+        env:
+          CHECK: ${{ matrix.check }}
+        run: |
+          nix build --print-build-logs --no-link \
+            ".#checks.x86_64-linux.${CHECK}"
