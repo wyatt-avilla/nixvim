@@ -45,6 +45,8 @@
 
           bundledModule = {
             module = {
+              nixpkgs.config.allowUnfree = true;
+
               extraPackagesAfter = with pkgs; [
                 cargo
                 rustc
@@ -76,7 +78,10 @@
           };
 
           minimalModule = {
-            module.imports = [ ./config ];
+            module = {
+              nixpkgs.config.allowUnfree = true;
+              imports = [ ./config ];
+            };
           };
         in
         {
