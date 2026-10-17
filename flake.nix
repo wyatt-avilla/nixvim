@@ -3,7 +3,10 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    nixvim.url = "github:nix-community/nixvim";
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     flake-parts.url = "github:hercules-ci/flake-parts";
 
     nix-ci = {
@@ -46,6 +49,7 @@
           bundledModule = {
             module = {
               nixpkgs.config.allowUnfree = true;
+              nixpkgs.source = nixpkgs;
 
               extraPackagesAfter = with pkgs; [
                 cargo
@@ -80,6 +84,7 @@
           minimalModule = {
             module = {
               nixpkgs.config.allowUnfree = true;
+              nixpkgs.source = nixpkgs;
               imports = [ ./config ];
             };
           };
