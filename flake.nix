@@ -57,6 +57,9 @@
                 rustfmt
                 rust-analyzer
                 clippy
+                go
+                gopls
+                golangci-lint
                 ruff
                 mypy
                 shellcheck

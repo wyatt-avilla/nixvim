@@ -3,6 +3,7 @@
   imports = [
     ./python.nix
     ./rust.nix
+    ./go.nix
     ./c.nix
     ./bash.nix
     ./nix.nix
