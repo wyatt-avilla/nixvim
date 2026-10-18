@@ -68,7 +68,7 @@
                 statix
                 markdownlint-cli
                 prettier
-                nixfmt-rfc-style
+                nixfmt
                 yazi
                 wakatime-cli
                 texlab
